@@ -22,7 +22,7 @@ public class AdminAseBeans {
 		ResultSet rs = null;
 		org.json.JSONArray jason = new org.json.JSONArray();
 		JSONObject success = null;
-		AdminBean adminbean = new AdminBean();
+		AdminBean adminbean = new AdminBean();  
 		try {
 
 			connection = ConnectionDAO.iSurveyConntest().getConnection();
