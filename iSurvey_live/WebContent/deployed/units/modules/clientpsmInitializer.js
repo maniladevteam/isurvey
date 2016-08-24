@@ -1,0 +1,1 @@
+var clientPsmObj = new clientPsm.clientPsmObj();

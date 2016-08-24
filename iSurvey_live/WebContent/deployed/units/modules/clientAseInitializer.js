@@ -1,0 +1,1 @@
+var clientAseObj = new clientAse.clienAsetObj();
