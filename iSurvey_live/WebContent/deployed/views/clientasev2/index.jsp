@@ -6,8 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-
-
 <link
 	href="../../common/lib/DataTables-1.10.11/media/css/jquery.dataTables.css"
 	rel="stylesheet">
