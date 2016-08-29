@@ -15,7 +15,7 @@
 	href="../../resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
-
+  
 <link
 	href="../../common/lib/DataTables-1.10.11/extensions/FixedColumns/css/fixedColumns.bootstrap.min.css"
 	rel="stylesheet">
