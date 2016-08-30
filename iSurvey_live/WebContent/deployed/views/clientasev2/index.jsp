@@ -10,7 +10,6 @@
 	href="../../common/lib/DataTables-1.10.11/media/css/jquery.dataTables.css"
 	rel="stylesheet">
 
-
 <link
 	href="../../resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css"
 	rel="stylesheet">
