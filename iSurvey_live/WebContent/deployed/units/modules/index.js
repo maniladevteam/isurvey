@@ -260,7 +260,7 @@ $(document)
 					$("#email_recepients_quality_360").click(function(){
 						adminObj.SendEmailQualitySurveyAgent($("#agent_txt_survey_uu_id").val());
 						adminObj.SendEmailQualitySurveyTmOne($("#tm_txt_survey_uu_id").val(),$("#tm_txt_survey_uu_id_two").val());
-						adminObj.SendEmailQualitySurveyPSM($("#psm_txt_survey_uu_id").val());
+						/*adminObj.SendEmailQualitySurveyPSM($("#psm_txt_survey_uu_id").val());*/
 					});
 
 				});

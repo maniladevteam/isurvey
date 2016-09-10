@@ -306,34 +306,38 @@ public class SurveyEmailer {
 		properties.setProperty("mail.smtp.host", host);
 		Session session = Session.getDefaultInstance(properties);
 
-		try {
-
+		try { 
+			
 			StringBuilder msgBody = new StringBuilder();
 			msgBody.append(
 					"<body  style='font:segoe UI'; margin:auto; text-align: justify; text-justify: inter-word;'> <div style='margin:auto;'>");
 			msgBody.append("<img src=cid:image> </div>");
-			msgBody.append("Hi ");
+			msgBody.append("Hello ");
 			msgBody.append(toName);
 			msgBody.append(",");
 			msgBody.append("<p>&nbsp;</p>");
 			msgBody.append(
-					"Today is the last day to share your perspective on how your team manager is doing before they join the upcoming High-Impact Coaching Workshop.   <br /> <br />");
-			msgBody.append(
-					"Simply go through the questionnaire below by copying the link and opening it in Google Chrome.<br/><br/> <br/>");
+					"The survey links will remain open until <b> September 9, Friday</b> to give you ample time to share your perspectives regarding your direct manager's present coaching skills and styles. <br /> <br />");
+			msgBody.append("Simply go through the questionnaire below by copying the link and opening it in Google Chrome. <br /><br /><br />");
 			
-			msgBody.append("<a href='" + origin + "/iSurvey_quality/deployed/views/client/?u=");
-			msgBody.append(userUUID);
+			/*msgBody.append("In line with this, please complete this survey regarding your manager's present coaching skills and style.  This will help your manager establish a baseline on how s/he is doing today in different facets of their coaching performance.  Please rate each item as objectively as you can.  All responses are anonymous. The results of this questionnaire will not, in any way, affect you or your manager's current operational KPIs.  Your feedback will serve as your manager's \"developmental accelerator\" as they speed forward with High-Impact Coaching. <br /><br />");
+			 msgBody.append("Please copy and open the link below in Google Chrome to complete the survey. The questionnaire will close end-of-day of <b> September 7, Wednesday.</b><br /><br /><br />");*/
+			/*msgBody.append(
+					"Simply go through the questionnaire below by copying the link and opening it in Google Chrome.<br/><br/> <br/>");*/
+			
+			msgBody.append("<a href='" + origin + "/iSurvey_lt_n/deployed/views/client/?u=");    
+			msgBody.append(userUUID);  
 			msgBody.append("&");
 			msgBody.append("s=" + surveyUUID + "'>");
 			msgBody.append("Personal Qualities of an Effective Coach");
 			msgBody.append("</a>");
-
+			
 			msgBody.append("<p>Warm Regards,</p>");
 			msgBody.append("Global Quality Team");
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(from));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("PRE-WORK: High-Impact Coaching");
+			message.setSubject("ACTION NEEDED: High-Impact Coaching");
 			MimeMultipart multipart = new MimeMultipart("related");
 
 			BodyPart messageBodyPart = new MimeBodyPart();
@@ -341,7 +345,7 @@ public class SurveyEmailer {
 			messageBodyPart.setContent(htmlText, "text/html");
 			multipart.addBodyPart(messageBodyPart);
 			messageBodyPart = new MimeBodyPart();
-
+			
 			messageBodyPart.setHeader("Content-ID", "<image>");
 			addAttachment(multipart, "///C:/hic.jpg");
 			message.setContent(multipart);
@@ -349,7 +353,7 @@ public class SurveyEmailer {
 			System.out.println("Sent message successfully....");
 
 		} catch (Exception e) {
-			e.getMessage();
+			e.getMessage();  
 		}
 	}
 
@@ -373,30 +377,28 @@ public class SurveyEmailer {
 			msgBody.append(toName);
 			msgBody.append(",");
 			msgBody.append("<p>&nbsp;</p>");
-			msgBody.append(
-					"Today is the last day to complete your pre-work for the High-Impact Coaching. Kindly answer the two questionnaires: 'Personal Qualities of an Effective Coach' and 'Internal Roadblocks'. <br /><br /> ");
-
-			msgBody.append(
-					"Simply go through the questionnaires below by copying the links and opening them in Google Chrome.<br /><br /><br />");
-
+			msgBody.append(  
+					"The survey links will remain open until <b> September 9, Friday</b> to give you ample time to complete your pre-work for the High-Impact Coaching.  Kindly answer the two questionnaires: 'Personal Qualities of an Effective Coach' and 'Internal Roadblocks'.   <br /><br /> ");
+			msgBody.append("Simply copy the links below and open them in Google Chrome.<br /><br /><br /> ");
+			
 		
-			msgBody.append("<a href='" + origin + "/iSurvey_quality/deployed/views/client/?u=");
+			msgBody.append("<a href='" + origin + "/iSurvey_lt_n/deployed/views/client/?u=");
 
 			msgBody.append(userUUID);
-			msgBody.append("&");
+			msgBody.append("&");  
 			msgBody.append("s=" + surveyUUID + "'> ");
-
+			  
 			msgBody.append("1. Personal Qualities of an Effective Coach");
 			msgBody.append("</a><br />");
-
-			msgBody.append("<a href='" + origin + "/iSurvey_quality/deployed/views/client/?u=");
+			
+			msgBody.append("<a href='" + origin + "/iSurvey_lt_n/deployed/views/client/?u=");
 			msgBody.append(userUUID);
 			msgBody.append("&");
 			msgBody.append("s=" + sencondSurveyUUID + "'>");
 
 			msgBody.append("2. Internal Roadblocks");
-			msgBody.append("</a>");
-
+			msgBody.append("</a>"); 
+			
 			msgBody.append("<p>Regards,</p>");
 
 			msgBody.append("Global Quality Team");
@@ -407,7 +409,7 @@ public class SurveyEmailer {
 
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
-			message.setSubject("PRE-WORK: High-Impact Coaching");
+			message.setSubject("ACTION NEEDED: High-Impact Coaching");
 
 			MimeMultipart multipart = new MimeMultipart("related");
 			BodyPart messageBodyPart = new MimeBodyPart();

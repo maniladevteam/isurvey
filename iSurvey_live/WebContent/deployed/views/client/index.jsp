@@ -91,9 +91,9 @@ img {
 <body>
 	<form id="client_survey_form">
 		<div style="text-align: left;">
-			<img src="defaultlogo.jpg" style="" />
+			<img src="hic.jpg" style="" />
 			<!-- <h1 style="margin-left: 200px;">High Impact Coaching</h1> -->
-			<div style="text-align: center" id="survey_client_instructions"
+			<div style="text-align: center" id="survey_client_instructions" 
 				class="container-fluid"></div>
 			<br />
 

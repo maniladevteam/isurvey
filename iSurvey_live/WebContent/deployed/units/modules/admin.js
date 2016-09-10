@@ -3,6 +3,7 @@ var adminObj = adminObj || {};
 adminObj.adminObj = function() {
 	var userId;
 	var surveyUUID;
+	
 };
 
 adminObj.adminObj.prototype = {

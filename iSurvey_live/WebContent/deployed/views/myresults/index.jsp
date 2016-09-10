@@ -13,8 +13,6 @@
 <link
 	href="../../resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css"
 	rel="stylesheet">
-
-
 <link
 	href="../../common/lib/DataTables-1.10.11/extensions/FixedColumns/css/fixedColumns.bootstrap.min.css"
 	rel="stylesheet">
@@ -282,7 +280,7 @@ span {
 	
 	<img src="../../views/client/hic.jpg" />
 
-	<p style="margin-top: 200px"></p>
+	<p style="margin-top: 50px"></p>
 	
 	<div class="container-fluid child_div_1">
 		<div style="margin-left: 100px;">
@@ -297,7 +295,7 @@ span {
 			</h1>
 		</div>
 		<div id="container"
-			style="width: 380px; height: 500px; margin-left: 50px;"></div>
+			style="width: 230px; height: 500px; margin-left: 50px;"></div>
 	</div>
 
 	<div class="container-fluid child_div_1">
@@ -313,7 +311,7 @@ span {
 			</h1>
 		</div>
 		<div id="container2"
-			style="width: 380px; height: 500px; margin-left: 50px;"></div>
+			style="width: 230px; height: 500px; margin-left: 50px;"></div>
 	</div>
 	
 	<div class="container-fluid child_div_1">
@@ -329,7 +327,7 @@ span {
 			</h1>
 		</div>
 		<div id="container3"
-			style="width: 380px; height: 500px; margin-left: 50px;"></div>
+			style="width: 230px; height: 500px; margin-left: 50px;"></div>
 	</div>
 	
 	
@@ -343,10 +341,10 @@ span {
 			</h1>
 			<h1>
 				<span class="label label-warning">10</span>
-			</h1>
+			</h1>	
 		</div>
 		<div id="container4"
-			style="width: 380px; height: 500px; margin-left: 50px;"></div>
+			style="width: 230px; height: 500px; margin-left: 50px;"></div>
 	</div>
 	
 	<div class="container-fluid child_div_1">
@@ -362,340 +360,10 @@ span {
 			</h1>
 		</div>
 		<div id="container5"
-			style="width: 380px; height: 500px; margin-left: 50px;"></div>
+			style="width: 230px; height: 500px; margin-left: 50px;"></div>
 	</div>
 
 
 </body>
 </html>
-<script>
-	$(function() {
-		$('#container')
-				.highcharts(
-						{
-							chart : {
-								type : 'column'
-							},
-							title : {
-								text : 'ARTICULATION translates exact thoughts and meanings into words'
-							},
-							xAxis : {
-								categories : [ 'ARTICULATION' ]
-							},
-							yAxis : {
-								min : 0,
-								title : {
-									text : 'team perception score distrubution'
-								},
-								stackLabels : {
-									enabled : true,
-									style : {
-										fontWeight : 'bold',
-										color : (Highcharts.theme && Highcharts.theme.textColor)
-												|| 'gray'
-									}
-								}
-							},
-							legend : {
-
-								x : 35,
-								verticalAlign : 'top',
-								y : 50,
-								floating : true,
-								backgroundColor : (Highcharts.theme && Highcharts.theme.background2)
-										|| 'white',
-								borderColor : '#CCC',
-								borderWidth : 1,
-								shadow : false
-							},
-							tooltip : {
-								headerFormat : '<b>{point.x}</b><br/>',
-								pointFormat : '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-							},
-							plotOptions : {
-								column : {
-									stacking : 'normal',
-									dataLabels : {
-										enabled : true,
-										color : (Highcharts.theme && Highcharts.theme.dataLabelsColor)
-												|| 'white',
-										style : {
-											textShadow : '0 0 3px black'
-										}
-									}
-								}
-							},
-							series : [ {
-								name : '9-10',
-								data : [ {
-									y : 341,
-									color : '#006600'
-								} ]
-							}, {
-								name : '7-8',
-								data : [ {
-									y : 125,
-									color : '#FABE00'
-								} ]
-							}, {
-								name : '4-6',
-								data : [ {
-									y : 15,
-									color : '#595959'
-								} ]
-							}, {
-								name : '1-3',
-								data : [ {
-									y : 14,
-									color : '#C00000'
-								} ]
-							} ]
-						});
-
-		$('#container2')
-				.highcharts(
-						{
-							chart : {
-								type : 'column'
-							},
-							title : {
-								text : 'COMMUNICATION clarity of messages and expectations; candidness'
-							},
-							xAxis : {
-								categories : [ 'COMMUNICATION' ]
-							},
-							yAxis : {
-								min : 0,
-								title : {
-									text : 'team perception score distrubution'
-								},
-								stackLabels : {
-									enabled : true,
-									style : {
-										fontWeight : 'bold',
-										color : (Highcharts.theme && Highcharts.theme.textColor)
-												|| 'gray'
-									}
-								}
-							},
-							legend : {
-
-								x : 35,
-								verticalAlign : 'top',
-								y : 40,
-								floating : true,
-								backgroundColor : (Highcharts.theme && Highcharts.theme.background2)
-										|| 'white',
-								borderColor : '#CCC',
-								borderWidth : 1,
-								shadow : false
-							},
-							tooltip : {
-								headerFormat : '<b>{point.x}</b><br/>',
-								pointFormat : '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-							},
-							plotOptions : {
-								column : {
-									stacking : 'normal',
-									dataLabels : {
-										enabled : true,
-										color : (Highcharts.theme && Highcharts.theme.dataLabelsColor)
-												|| 'white',
-										style : {
-											textShadow : '0 0 3px black'
-										}
-									}
-								}
-							},
-							series : [ {
-								name : '9-10',
-								data : [ {
-									y : 333,
-									color : '#006600'
-								} ]
-							}, {
-								name : '7-8',
-								data : [ {
-									y : 135,
-									color : '#FABE00'
-								} ]
-							}, {
-								name : '4-6',
-								data : [ {
-									y : 42,
-									color : '#595959'
-								} ]
-							}, {
-								name : '1-3',
-								data : [ {
-									y : 10,
-									color : '#C00000'
-								} ]
-							} ]
-						});
-
-		$('#container3')
-				.highcharts(
-						{
-							chart : {
-								type : 'column'
-							},
-							title : {
-								text : 'ARTICULATION translates exact thoughts and meanings into words'
-							},
-							xAxis : {
-								categories : [ 'ARTICULATION' ]
-							},
-							yAxis : {
-								min : 0,
-								title : {
-									text : 'team perception score distrubution'
-								},
-								stackLabels : {
-									enabled : true,
-									style : {
-										fontWeight : 'bold',
-										color : (Highcharts.theme && Highcharts.theme.textColor)
-												|| 'gray'
-									}
-								}
-							},
-							legend : {
-
-								x : 35,
-								verticalAlign : 'top',
-								y : 50,
-								floating : true,
-								backgroundColor : (Highcharts.theme && Highcharts.theme.background2)
-										|| 'white',
-								borderColor : '#CCC',
-								borderWidth : 1,
-								shadow : false
-							},
-							tooltip : {
-								headerFormat : '<b>{point.x}</b><br/>',
-								pointFormat : '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-							},
-							plotOptions : {
-								column : {
-									stacking : 'normal',
-									dataLabels : {
-										enabled : true,
-										color : (Highcharts.theme && Highcharts.theme.dataLabelsColor)
-												|| 'white',
-										style : {
-											textShadow : '0 0 3px black'
-										}
-									}
-								}
-							},
-							series : [ {
-								name : '9-10',
-								data : [ {
-									y : 341,
-									color : '#006600'
-								} ]
-							}, {
-								name : '7-8',
-								data : [ {
-									y : 125,
-									color : '#FABE00'
-								} ]
-							}, {
-								name : '4-6',
-								data : [ {
-									y : 15,
-									color : '#595959'
-								} ]
-							}, {
-								name : '1-3',
-								data : [ {
-									y : 14,
-									color : '#C00000'
-								} ]
-							} ]
-						});
-
-		$('#container4')
-				.highcharts(
-						{
-							chart : {
-								type : 'column'
-							},
-							title : {
-								text : 'ARTICULATION translates exact thoughts and meanings into words'
-							},
-							xAxis : {
-								categories : [ 'ARTICULATION' ]
-							},
-							yAxis : {
-								min : 0,
-								title : {
-									text : 'team perception score distrubution'
-								},
-								stackLabels : {
-									enabled : true,
-									style : {
-										fontWeight : 'bold',
-										color : (Highcharts.theme && Highcharts.theme.textColor)
-												|| 'gray'
-									}
-								}
-							},
-							legend : {
-								x : 35,
-								verticalAlign : 'top',
-								y : 50,
-								floating : true,
-								backgroundColor : (Highcharts.theme && Highcharts.theme.background2)
-										|| 'white',
-								borderColor : '#CCC',
-								borderWidth : 1,
-								shadow : false
-							},
-							tooltip : {
-								headerFormat : '<b>{point.x}</b><br/>',
-								pointFormat : '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-							},
-							plotOptions : {
-								column : {
-									stacking : 'normal',
-									dataLabels : {
-										enabled : true,
-										color : (Highcharts.theme && Highcharts.theme.dataLabelsColor)
-												|| 'white',
-										style : {
-											textShadow : '0 0 3px black'
-										}
-									}
-								}
-							},
-							series : [ {
-								name : '9-10',
-								data : [ {
-									y : 341,
-									color : '#006600'
-								} ]
-							}, {
-								name : '7-8',
-								data : [ {
-									y : 0,
-									color : '#FABE00'
-								} ]
-							}, {
-								name : '4-6',
-								data : [ {
-									y : 15,
-									color : '#595959'
-								} ]
-							}, {
-								name : '1-3',
-								data : [ {
-									y : 14,
-									color : '#C00000'
-								} ]
-							} ]
-						});
-
-	});
-</script>
+<script src=""></script>

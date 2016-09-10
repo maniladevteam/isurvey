@@ -462,6 +462,58 @@ public class ClientBeans {
 
 		return null;
 	}
+	
+	
+	public JSONArray GetResultsForLT(String survey_id, String tm_id, String question_id) throws SQLException, Exception {
+
+		PreparedStatement query = null;
+		Connection connection = null;
+		ResultSet rs = null;
+		org.json.JSONArray json = new org.json.JSONArray();
+
+		try {
+
+			connection = ConnectionDAO.iSurveyConntest().getConnection();
+			query = connection.prepareStatement("call iperform_survey_db_test.`sp_get_lt_graph`(?,?,?)");
+			query.setString(1, survey_id);
+			query.setString(2, tm_id);
+			query.setString(3, question_id);
+			rs = query.executeQuery();
+			
+			json = ResultSetConverter.convert(rs);
+			return json;
+
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} catch (Exception e) {
+			e.getMessage();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception e) {
+
+			}
+
+			try {
+				if (query != null)
+					query.close();
+			} catch (Exception e) {
+			}
+
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+
+			}
+
+		}
+
+		return null;
+	}
+	
+	
 
 	private void EmailTeamManagerForConfirmation(String UUID) throws SQLException, Exception {
 

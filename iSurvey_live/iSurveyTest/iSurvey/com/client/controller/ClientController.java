@@ -106,28 +106,28 @@ public class ClientController {
 		Response rb = null;
 
 		try {
-			
+
 			JSONObject json = new JSONObject(DATA);
 			String surveyUUId = json.optString("surveyId", "");
 			String questionId = json.optString("questionId", "");
-			/*String questionType = json.optString("questionType", "");*/
+			/* String questionType = json.optString("questionType", ""); */
 			String answerValue = json.optString("answerValue", "");
 			String empId = json.optString("userId", "");
-			String UUid = json.optString("uuid","");
-			ClientBeans clientBean = new ClientBeans();  
+			String UUid = json.optString("uuid", "");
+			ClientBeans clientBean = new ClientBeans();
 
 			clientBean.AddSurveyAnswer(surveyUUId, questionId, UUid, answerValue, empId);
 			rb = Response.ok("{\"success\":\"success\"}").build();
 
 			return rb;
 		} catch (NullPointerException h) {
-  
-			return Response.status(400).entity("You have empty parameter").build();  
-  
+
+			return Response.status(400).entity("You have empty parameter").build();
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
+
 		return Response.status(500)
 				.entity("{\"error\":\"There was an error on the code kindly contact marangelo.delatorre@thomsonreuters.com\"}")
 				.build();
@@ -148,15 +148,15 @@ public class ClientController {
 
 			ClientBeans clientBean = new ClientBeans();
 
-			//clientBean.AddSurveyUser(surveyUUId, userId);
+			// clientBean.AddSurveyUser(surveyUUId, userId);
 			rb = Response.ok("{\"success\":\"success\"}").build();
-			
+
 			return rb;
 		} catch (NullPointerException h) {
 
 			return Response.status(400).entity("You have empty parameter").build();
 
-		} catch (Exception e) {   
+		} catch (Exception e) {
 			e.getMessage();
 		}
 
@@ -196,7 +196,7 @@ public class ClientController {
 				.build();
 
 	}
-	
+
 	@Path("/getase")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -207,12 +207,11 @@ public class ClientController {
 
 			JSONObject json = new JSONObject(DATA);
 			String employeeIds = json.optString("employeeIds", "");
-			
 
 			ClientBeans clientBean = new ClientBeans();
 
 			rb = Response.ok(clientBean.GetAse(employeeIds).toString()).build();
-			
+
 			return rb;
 		} catch (NullPointerException h) {
 
@@ -227,32 +226,31 @@ public class ClientController {
 				.build();
 
 	}
-	
-	
+
 	@Path("/adduseranswerase")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response AddUserAnswerASE(String DATA) {
 		Response rb = null;
-		
+
 		try {
-			
+
 			JSONObject json = new JSONObject(DATA);
 			String surveyUUId = json.optString("surveyId", "");
 			String questionId = json.optString("questionId", "");
 			String questionType = json.optString("questionType", "");
 			String answerValue = json.optString("answerValue", "");
 			String empId = json.optString("userId", "");
-			ClientBeans clientBean = new ClientBeans();  
+			ClientBeans clientBean = new ClientBeans();
 
 			clientBean.AddSurveyAnswerASE(surveyUUId, questionId, questionType, answerValue, empId);
 			rb = Response.ok("{\"success\":\"success\"}").build();
-			
+
 			return rb;
 		} catch (NullPointerException h) {
-  
-			return Response.status(400).entity("You have empty parameter").build();  
-  
+
+			return Response.status(400).entity("You have empty parameter").build();
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -262,35 +260,67 @@ public class ClientController {
 				.build();
 
 	}
-	
+
 	@Path("/addusercommentase")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response AddUserCommentASE(String DATA) {
 		Response rb = null;
-		
+
 		try {
-			
+
 			JSONObject json = new JSONObject(DATA);
 			String surveyUUId = json.optString("surveyId", "");
 			String questionId = json.optString("questionId", "");
 			String questionType = json.optString("questionType", "");
 			String answerValue = json.optString("answerValue", "");
 			String empId = json.optString("userId", "");
-			ClientBeans clientBean = new ClientBeans();  
-			
+			ClientBeans clientBean = new ClientBeans();
+
 			clientBean.AddSurveyCommentASE(surveyUUId, questionId, questionType, answerValue, empId);
 			rb = Response.ok("{\"success\":\"success\"}").build();
-			
+
 			return rb;
 		} catch (NullPointerException h) {
-  
-			return Response.status(400).entity("You have empty parameter").build();  
-  
+
+			return Response.status(400).entity("You have empty parameter").build();
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
 
+		return Response.status(500)
+				.entity("{\"error\":\"There was an error on the code kindly contact marangelo.delatorre@thomsonreuters.com\"}")
+				.build();
+
+	}
+
+	@Path("/getltsummary")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response GetSummaryForLT(String DATA) {
+		Response rb = null;
+
+		try {  
+			
+			JSONObject json = new JSONObject(DATA);
+			String surveyUUId = json.optString("surveyId", "");
+			String questionId = json.optString("questionId", "");
+			String tmId = json.optString("tmId", "");
+
+			ClientBeans clientBean = new ClientBeans();
+			clientBean.GetResultsForLT(surveyUUId, tmId, questionId);
+			rb = Response.ok("{\"success\":\"success\"}").build();
+
+			return rb;
+		} catch (NullPointerException h) {
+
+			return Response.status(400).entity("You have empty parameter").build();
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		
 		return Response.status(500)
 				.entity("{\"error\":\"There was an error on the code kindly contact marangelo.delatorre@thomsonreuters.com\"}")
 				.build();

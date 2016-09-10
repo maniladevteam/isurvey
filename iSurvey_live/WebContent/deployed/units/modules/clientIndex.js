@@ -9,10 +9,10 @@ $(document).ready(function() {
 	
 			$("#savesurveyanswers").click(function() {
 				/*clientObj.SendSurveyAnswers(clientObj.getParameterByName("s"), clientObj
-						.getParameterByName("u"));*/
+						.getParameterByName("u"));*/  
 				
 				clientObj.SendSurveyAnswers();
-				$(this).css("disabled","disabled");
+				$(this).css("disabled","disabled"); 
 			});
 			
 			clientObj.IsAnswered(clientObj.getParameterByName("s"), clientObj.getParameterByName("u"));
