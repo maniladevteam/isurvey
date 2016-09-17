@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.management.RuntimeErrorException;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import iSurvey.com.dao.ConnectionDAO;
 import iSurvey.com.emailer.SurveyEmailer;
@@ -460,7 +463,7 @@ public class ClientBeans {
 
 		}
 
-		return null;
+		return null; 
 	}
 	
 	
@@ -511,6 +514,56 @@ public class ClientBeans {
 		}
 
 		return null;
+	}
+	
+	
+	public JSONArray GetMyPerception(String survey_id, String tm_id) throws SQLException  {
+
+		PreparedStatement query = null;
+		Connection connection = null;
+		ResultSet rs = null;
+		org.json.JSONArray json = new org.json.JSONArray();
+
+		try {
+
+			connection = ConnectionDAO.iSurveyConntest().getConnection();
+			query = connection.prepareStatement("call iperform_survey_db_test.`sp_get_my_percceptionss`(?,?)");
+			query.setString(1, survey_id);
+			query.setString(2, tm_id);
+			
+			rs = query.executeQuery();
+			
+			json = ResultSetConverter.convert(rs);
+			return json;
+
+		} catch (SQLException e) {
+			throw new SQLException("DB EROOR" +  e);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception e) {
+
+			}
+
+			try {
+				if (query != null)
+					query.close();
+			} catch (Exception e) {
+			}
+
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+
+			}
+
+		}
+
+		
 	}
 	
 	

@@ -1,5 +1,8 @@
 package iSurvey.com.client.controller;
 
+import java.sql.SQLException;
+
+import javax.json.JsonArray;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -8,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.codehaus.jettison.json.JSONObject;
+import org.json.JSONArray;
 
 import iSurvey.com.admin.beans.AdminBean;
 import iSurvey.com.client.beans.ClientBeans;
@@ -296,21 +300,21 @@ public class ClientController {
 	}
 
 	@Path("/getltsummary")
-	@GET
+	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response GetSummaryForLT(String DATA) {
 		Response rb = null;
 
-		try {  
-			
+		try {
+
 			JSONObject json = new JSONObject(DATA);
 			String surveyUUId = json.optString("surveyId", "");
 			String questionId = json.optString("questionId", "");
 			String tmId = json.optString("tmId", "");
 
 			ClientBeans clientBean = new ClientBeans();
-			clientBean.GetResultsForLT(surveyUUId, tmId, questionId);
-			rb = Response.ok("{\"success\":\"success\"}").build();
+			/* clientBean.GetResultsForLT(surveyUUId, tmId, questionId); */
+			rb = Response.ok(clientBean.GetResultsForLT(surveyUUId, tmId, questionId).toString()).build();
 
 			return rb;
 		} catch (NullPointerException h) {
@@ -320,7 +324,38 @@ public class ClientController {
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
+
+		return Response.status(500)
+				.entity("{\"error\":\"There was an error on the code kindly contact marangelo.delatorre@thomsonreuters.com\"}")
+				.build();
+
+	}
+
+	@Path("/myperception")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response GetMyPerception(String DATA) {
+		Response rb = null;
+
+		try {
+
+			JSONObject json = new JSONObject(DATA);
+			String surveyUUId = json.optString("surveyId", "");
+			String tmId = json.optString("tmId", "");
+
+			ClientBeans clientBean = new ClientBeans();
+			JSONArray json2 =  clientBean.GetMyPerception(surveyUUId, tmId);
+			rb = Response.ok(json2).build();
+			
+			return rb;
+		} catch (SQLException e) {
+			return Response.status(400).entity("sqlexception"+ e).build();
+			
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+
 		return Response.status(500)
 				.entity("{\"error\":\"There was an error on the code kindly contact marangelo.delatorre@thomsonreuters.com\"}")
 				.build();
